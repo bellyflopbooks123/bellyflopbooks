@@ -171,5 +171,18 @@
     </div>
     
   </div>
+
+<script>
+  const releaseDate = new Date("2024-05-26"); // set the story release date here
+  const now = new Date();
+  const diffInDays = Math.floor((now - releaseDate) / (1000 * 60 * 60 * 24));
+  if (diffInDays > 6) {
+    document.body.innerHTML = "<div style='text-align:center;margin-top:4rem;font-family:sans-serif;font-size:1.5rem;color:#444;'>This story has expired! Redirecting you to our homepage…</div>";
+    setTimeout(() => {
+      window.location.href = "https://nightnightchronicles.com/?expired=mary";
+    }, 2000);
+  }
+</script>
+
 </body>
 </html>
