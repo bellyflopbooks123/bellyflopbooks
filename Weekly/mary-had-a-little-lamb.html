@@ -14,16 +14,17 @@
       color: #fff;
     }
     .wrapper {
-      max-width: 900px;
+      max-width: 1000px;
       margin: auto;
-      padding: 2rem;
+      padding: 2rem 1rem;
     }
     .logo {
       text-align: center;
       margin-top: 2rem;
     }
     .logo img {
-      max-width: 180px;
+      max-width: 200px;
+      width: 100%;
     }
     .pdf-link {
       text-align: center;
@@ -43,9 +44,11 @@
     .spread {
       display: flex;
       flex-wrap: wrap;
-      align-items: flex-start;
+      align-items: center;
       justify-content: center;
-      margin-bottom: 2rem;
+      min-height: 100vh;
+      box-sizing: border-box;
+      scroll-snap-align: start;
     }
     .verse, .image {
       flex: 1 1 100%;
@@ -54,26 +57,39 @@
       text-align: center;
     }
     .verse {
-      font-size: 1.25rem;
-      line-height: 1.6;
+      font-size: 1.5rem;
+      line-height: 1.7;
     }
     .image img {
       width: 100%;
+      max-width: 600px;
       height: auto;
       border-radius: 12px;
     }
     .byline {
       text-align: center;
-      font-size: 1rem;
+      font-size: 1.1rem;
       margin-bottom: 2rem;
       font-style: italic;
       color: #ddd;
     }
     @media (min-width: 768px) {
-      .verse, .image {
+      .verse {
         flex: 1 1 45%;
         max-width: 45%;
+        text-align: right;
+        padding-right: 2rem;
       }
+      .image {
+        flex: 1 1 45%;
+        max-width: 45%;
+        text-align: left;
+        padding-left: 2rem;
+      }
+    }
+    html {
+      scroll-snap-type: y mandatory;
+      overflow-y: scroll;
     }
   </style>
 </head>
@@ -85,7 +101,7 @@
     <div class="pdf-link">
       <a href="Mary_Had_a_Little_Lamb_Storybook_With_Bonus_Final.pdf" target="_blank">📄 View Full PDF</a>
     </div>
-    <div class="image">
+    <div class="image" style="margin-bottom: 0;">
       <img src="mary_reader_images/page_0.png" alt="Cover page" />
     </div>
     <div class="byline">by Bellyflop Books</div>
