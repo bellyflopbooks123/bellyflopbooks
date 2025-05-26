@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex" />
+  <title>Mary Had a Little... Lamb?</title>
+  <style>
+    body { font-family: 'Segoe UI', sans-serif; background-color: #fff8ee; margin: 0; padding: 0; color: #333; }
+    .gatekeeper { display: none; text-align: center; padding: 3rem; font-size: 1.5rem; color: #a00; }
+    .wrapper { display: none; max-width: 900px; margin: auto; padding: 2rem; }
+    .tabs { display: flex; justify-content: center; margin-bottom: 2rem; flex-wrap: wrap; }
+    .tabs button { background: #ffe066; border: none; padding: 1rem 2rem; font-size: 1rem; cursor: pointer; margin: 0.5rem; border-radius: 8px; transition: background 0.3s; }
+    .tabs button:hover { background: #ffd43b; }
+    .section { display: none; }
+    .section.active { display: block; }
+    .pdf-button-wrapper { text-align: center; margin-top: 2rem; }
+    .pdf-button-wrapper button {
+      background-color: #ffe066;
+      border: none;
+      padding: 1rem 2rem;
+      font-size: 1rem;
+      cursor: pointer;
+      border-radius: 8px;
+    }
+    .pdf-button-wrapper button:hover {
+      background-color: #ffd43b;
+    }
+    .spread { display: flex; flex-wrap: wrap; align-items: flex-start; justify-content: center; margin-bottom: 2rem; }
+    .verse, .image { flex: 1 1 100%; max-width: 100%; padding: 1rem; text-align: center; }
+    .verse { font-size: 1.25rem; line-height: 1.6; }
+    .image img { width: 100%; height: auto; border-radius: 12px; }
+    @media (min-width: 768px) {
+      .verse, .image { flex: 1 1 45%; max-width: 45%; }
+    }
+  </style>
+</head>
+<body>
+  <div class="gatekeeper" id="gatekeeper">🚫 This story is for subscribers only! Check your email for the secret link.</div>
+  <div class="wrapper" id="content">
+    <div class="tabs">
+      <button onclick="showTab('pdf')">PDF View</button>
+      <button onclick="showTab('reader')">Reader View</button>
+    </div>
+    <div class="section" id="pdf">
+      <div class="pdf-button-wrapper">
+        <p>This PDF opens best in a new tab:</p>
+        <button onclick="window.open('Mary_Had_a_Little_Lamb_Storybook_With_Bonus_Final.pdf', '_blank')">Open PDF</button>
+      </div>
+    </div>
+    <div class="section" id="reader">
+      <div class="spread">
+        <div class="verse">
+          Mary had a little lamb—<br />
+          With wool so bright and clean.<br />
+          It wagged its tail (a puffy ball),<br />
+          But scales peeked in between.<br />
+          Its head was oddly pointy,<br />
+          Its snout a tad too long...<br />
+          But Mary brushed its bristly back,<br />
+          And sang her lamb a song.
+        </div>
+        <div class="image">
+          <img src="mary_reader_images/page_2.png" alt="Page 2 image" />
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    function getQueryParam(key) {
+      return new URLSearchParams(window.location.search).get(key);
+    }
+    const requiredKey = "123abc";
+    const accessKey = getQueryParam("key");
+    const gatekeeper = document.getElementById("gatekeeper");
+    const content = document.getElementById("content");
+    if (accessKey === requiredKey) {
+      gatekeeper.style.display = "none";
+      content.style.display = "block";
+      document.getElementById("pdf").classList.add("active");
+    } else {
+      gatekeeper.style.display = "block";
+    }
+    function showTab(tabId) {
+      document.querySelectorAll(".section").forEach(section => section.classList.remove("active"));
+      document.getElementById(tabId).classList.add("active");
+    }
+  </script>
+</body>
+</html>
