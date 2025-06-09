@@ -160,24 +160,13 @@
 <div class="hero"><img alt="Bellyflop Books Logo" src="logo.png" style="max-width: 280px; width: 80vw; height: auto; margin-bottom: 2rem;"/>
 <h2>Make a Splash at Bedtime!</h2>
 <p>Whimsical, imagination inducing stories delivered weekly —  for free!</p>
-
 <div class="ml-form-embedContainer">
-  <form class="ml-block-form" action="https://assets.mailerlite.com/jsonp/1531732/forms/156693939454215764/subscribe" method="post">
-    <input aria-label="email" aria-required="true" type="email" class="form-control" name="fields[email]" placeholder="Enter your email" autocomplete="email" style="padding:10px; width:80%; margin: 1rem 0;">
-    <br/>
-    <button type="submit" class="primary" style="padding:10px 20px; font-size:1rem;">Get My Stories</button>
-    <div class="ml-form-embedSubmit" style="display:none;">
-      <button disabled="disabled" type="button" class="loading">
-        <div class="ml-form-embedSubmitLoad"></div>
-        <span class="sr-only">Loading...</span>
-      </button>
-    </div>
-    <input type="hidden" name="ml-submit" value="1">
-    <input type="hidden" name="anticsrf" value="true">
-  </form>
-  <div id="success-message" style="display:none; margin-top: 1rem;">You're in! 🎉</div>
-</div>
-
+<form id="signup-form">
+<input id="email" placeholder="Enter your email" required="" style="padding:10px; width:80%; margin: 1rem 0;" type="email"/>
+<br/>
+<button style="padding:10px 20px; font-size:1rem;" type="submit"> Get My Stories </button>
+</form>
+<div id="success-message" style="display:none; margin-top: 1rem;">You're in! 🎉</div>
 </div>
 <div style="max-width: 800px; margin: 2rem auto; font-size: 1.2rem; text-align: center; line-height: 1.6;">
 <div style="max-width: 700px; margin: 2.5rem auto; font-size: 1.1rem; text-align: center; color: #2a345d;">
@@ -212,7 +201,7 @@ Our stories are made to be reread, remembered, and most of all... enjoyed togeth
       e.preventDefault();
       const email = document.getElementById('email').value;
 
-      fetch('https://assets.mailerlite.com/jsonp/1531732/forms/154850951689143633/subscribe', {
+      fetch('https://assets.mailerlite.com/jsonp/1531732/forms/156693939454215764/subscribe', {
         method: 'POST',
         mode: 'no-cors',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
