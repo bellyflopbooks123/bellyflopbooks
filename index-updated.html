@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Bellyflop Books</title>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2&display=swap" rel="stylesheet"/>
+<style>body{margin:0;font-family:'Baloo 2',cursive;background-color:#ffffff;color:#2a345d;text-align:center;}.hero{background:linear-gradient(145deg,#00b0f0 0%,#ffffff 100%);padding:4rem 2rem;}.hero img{max-width:360px;animation:float 4s ease-in-out infinite;}@keyframes float{0%,100%{transform:translateY(0);}50%{transform:translateY(-10px);}}.ml-form-embedContainer{background:url('https://cdn.pixabay.com/photo/2014/04/02/17/01/water-307234_1280.png') no-repeat center/cover;border-radius:60% 40% 50% 60% / 50% 50% 60% 40%;padding:2.5rem;max-width:500px;margin:2rem auto;box-shadow:0 0 25px rgba(0,176,240,0.3);}nav{background-color:#00b0f0;padding:1rem;text-align:center;}nav a{color:white;margin:0 1rem;text-decoration:none;font-weight:bold;}nav a:hover{text-decoration:underline;}@media (max-width:600px){nav{display:flex;flex-direction:column;align-items:center;}nav a{display:block;margin:0.5rem 0!important;}}</style></head>
+<body>
+<nav><a href="index.html">Home</a><a href="stories.html">Stories</a><a href="custom-story.html">Custom Story</a><a href="contact.html">Contact</a><a href="store.html">Store</a></nav>
+<div class="hero"><img alt="Bellyflop Books Logo" src="logo.png" style="max-width:280px;width:80vw;height:auto;margin-bottom:2rem;"/>
+<h2>Make a Splash at Bedtime!</h2><p>Whimsical, imagination inducing stories delivered weekly — for free!</p>
+<div class="ml-form-embedContainer ml-subscribe-form ml-subscribe-form-26987344" id="mlb2-26987344">
+<div class="ml-form-align-center"><div class="ml-form-embedWrapper embedForm"><div class="ml-form-embedBody ml-form-embedBodyDefault row-form">
+<div class="ml-form-embedContent"><h4>Newsletter</h4><p>Signup for news and special offers!</p></div>
+<form id="signup-form" class="ml-block-form" action="https://assets.mailerlite.com/jsonp/1531732/forms/156693939454215764/subscribe" method="post" target="ml-form-response">
+<div class="ml-form-formContent"><div class="ml-form-fieldRow ml-last-item">
+<div class="ml-field-group ml-field-email ml-validate-email ml-validate-required">
+<input id="email" name="fields[email]" type="email" required placeholder="Enter your email" style="padding:10px;width:80%;margin:1rem 0;font-family:'Baloo 2',cursive;font-size:1.1rem;border-radius:50px;border:none;background-color:#fff;box-shadow:0 4px 8px rgba(0,0,0,0.1);outline:none;"/>
+</div></div></div><input name="ml-submit" type="hidden" value="1"/>
+<div class="ml-form-embedSubmit"><button type="submit" style="padding:10px 20px;font-size:1rem;font-family:'Baloo 2',cursive;background-color:#ffcf3f;color:#2a345d;border:none;border-radius:50px;font-weight:bold;cursor:pointer;transition:background-color 0.3s ease;">Get My Stories</button></div>
+<input type="hidden" name="anticsrf" value="true"/></form>
+<div id="success-message" class="ml-form-successBody row-success" style="display:none;margin-top:1rem;">
+<div class="ml-form-successContent"><h4>Thank you!</h4><p>You have successfully joined our subscriber list.</p></div></div></div></div></div></div>
+<audio id="ribbit" preload="auto" src="https://cdn.pixabay.com/download/audio/2021/09/01/audio_1b51b1d0ce.mp3?filename=ribbit-54729.mp3"></audio>
+<audio id="splash" preload="auto" src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_b3258326a3.mp3?filename=splash-112993.mp3"></audio>
+<script>function playSound(id){const audio=document.getElementById(id);if(audio)audio.play();}
+function frogHop(){const frog=document.getElementById('frog');if(frog){frog.classList.add('hop');playSound('ribbit');setTimeout(()=>frog.classList.remove('hop'),1000);}}
+document.getElementById('signup-form').addEventListener('submit',function(e){e.preventDefault();const email=document.getElementById('email').value;
+fetch('https://assets.mailerlite.com/jsonp/1531732/forms/156693939454215764/subscribe',{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:new URLSearchParams({'fields[email]':email})});
+document.getElementById('signup-form').style.display='none';document.getElementById('success-message').style.display='block';playSound('splash');frogHop();});</script>
+</body>
+</html>
